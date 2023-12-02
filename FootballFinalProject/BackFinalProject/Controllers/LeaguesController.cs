@@ -1,39 +1,102 @@
-﻿using System;
+﻿using BackFinalProject.Models;
+using BackFinalProject.Repositories.IRepositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace BackFinalProject.Controllers
 {
     public class LeaguesController : ApiController
     {
-        // GET: api/Leagues
-        public IEnumerable<string> Get()
+        private readonly ILeagueRepository leagueRepository;
+        
+        public LeaguesController(ILeagueRepository repository)
         {
-            return new string[] { "value1", "value2" };
+            leagueRepository = repository;
+        }
+
+        // GET: api/Leagues
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllLeagues()
+        {
+            IEnumerable<League> leagues = await leagueRepository.GetAllLeagues();
+
+            return Ok(leagues);
         }
 
         // GET: api/Leagues/5
-        public string Get(int id)
+        [HttpGet]
+        public async Task<IHttpActionResult> GetLeagueById(int id)
         {
-            return "value";
+            League league = await leagueRepository.GetLeagueById(id);
+
+            if (league == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(league);
         }
 
         // POST: api/Leagues
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public async Task<IHttpActionResult> AddLeague(League league)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            League insertedLeague = await leagueRepository.AddLeague(league);
+
+            if (insertedLeague == null)
+            {
+                return BadRequest("Error inserting league");
+            }
+
+            return Ok(insertedLeague);
         }
 
         // PUT: api/Leagues/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public async Task<IHttpActionResult> UpdateLeague(int id, League league)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != league.id)
+            {
+                return BadRequest();
+            }
+
+            League updatedLeague = await leagueRepository.UpdateLeague(league);
+
+            if (updatedLeague == null)
+            {
+                return BadRequest("Error updating league");
+            }
+
+            return Ok(updatedLeague);
         }
 
         // DELETE: api/Leagues/5
-        public void Delete(int id)
+        [HttpDelete]
+        public async Task<IHttpActionResult> DeleteLeague(int id)
         {
+            bool deleted = await leagueRepository.DeleteLeague(id);
+
+            if (!deleted)
+            {
+                return BadRequest("Error deleting league");
+            }
+
+            return Ok();
         }
     }
 }
