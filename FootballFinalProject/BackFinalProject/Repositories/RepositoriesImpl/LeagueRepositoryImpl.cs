@@ -56,7 +56,6 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
             return insertedLeague;
         }
 
-
         public Task<bool> DeleteLeague(int id)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
