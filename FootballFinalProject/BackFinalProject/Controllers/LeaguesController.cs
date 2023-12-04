@@ -1,5 +1,6 @@
 ﻿using BackFinalProject.Models;
 using BackFinalProject.Repositories.IRepositories;
+using BackFinalProject.Repositories.RepositoriesImpl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace BackFinalProject.Controllers
     {
         private readonly ILeagueRepository leagueRepository;
         
-        public LeaguesController(ILeagueRepository repository)
+        public LeaguesController()
         {
-            leagueRepository = repository;
+            leagueRepository = new LeagueRepositoryImpl();
         }
 
         // GET: api/Leagues
@@ -44,7 +45,7 @@ namespace BackFinalProject.Controllers
 
         // POST: api/Leagues
         [HttpPost]
-        public async Task<IHttpActionResult> AddLeague(League league)
+        public async Task<IHttpActionResult> AddLeague([FromBody]League league)
         {
             if (!ModelState.IsValid)
             {
@@ -63,11 +64,16 @@ namespace BackFinalProject.Controllers
 
         // PUT: api/Leagues/5
         [HttpPut]
-        public async Task<IHttpActionResult> UpdateLeague(int id, League league)
+        public async Task<IHttpActionResult> UpdateLeague(int id, [FromBody]League league)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (league == null)
+            {
+                return BadRequest("League is null");
             }
 
             if (id != league.id)

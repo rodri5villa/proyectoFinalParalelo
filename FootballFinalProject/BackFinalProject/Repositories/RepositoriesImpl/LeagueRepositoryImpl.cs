@@ -11,7 +11,7 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
     internal class LeagueRepositoryImpl : IRepositories.ILeagueRepository
     {
 
-        string connectionString= "server=localhost;port=3306;database=leagues_football;user=root;password=;";
+        private string connectionString= "server=localhost;port=3306;database=leagues_football;user=root;password=;";
 
 
         public async Task<League> AddLeague(League league)
