@@ -329,8 +329,6 @@ C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFi
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.Deployment.dll
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.dll
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.Razor.dll
-C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Unity.Abstractions.dll
-C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Unity.Container.dll
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\WebGrease.dll
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\ZstdSharp.dll
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\BouncyCastle.Cryptography.xml
@@ -359,8 +357,6 @@ C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFi
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.xml
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.Deployment.xml
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\System.Web.WebPages.Razor.xml
-C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Unity.Abstractions.pdb
-C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Unity.Container.pdb
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Antlr3.Runtime.pdb
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\BackFinalProject\bin\es\System.Net.Http.Formatting.resources.dll

@@ -1,5 +1,6 @@
 ﻿using BackFinalProject.Models;
 using BackFinalProject.Repositories.IRepositories;
+using BackFinalProject.Repositories.RepositoriesImpl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace BackFinalProject.Controllers
     {
         private readonly ILeagueRepository leagueRepository;
         
-        public LeaguesController(ILeagueRepository repository)
+        public LeaguesController()
         {
-            leagueRepository = repository;
+            leagueRepository = new LeagueRepositoryImpl();
         }
 
         // GET: api/Leagues
