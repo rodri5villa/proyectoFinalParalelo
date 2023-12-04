@@ -217,8 +217,10 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepositories\ILeagueRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IPlayerRepository.cs" />
     <Compile Include="Repositories\IRepositories\ITeamRepository.cs" />
     <Compile Include="Repositories\RepositoriesImpl\LeagueRepositoryImpl.cs" />
+    <Compile Include="Repositories\RepositoriesImpl\PlayerRepositoryImpl.cs" />
     <Compile Include="Repositories\RepositoriesImpl\TeamRepositoryImpl.cs" />
   </ItemGroup>
   <ItemGroup>
