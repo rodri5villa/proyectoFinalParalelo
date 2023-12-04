@@ -52,33 +52,138 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                 }
                 connection.Close();
             }
-
             return insertedTeam;
         }
 
         public Task<IEnumerable<Team>> GetAllTeams()
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("SELECT * FROM teams", connection);
+
+                using (MySqlDataReader reader = (MySqlDataReader)command.ExecuteReader())
+                {
+                    List<Team> teams = new List<Team>();
+
+                    while (reader.Read())
+                    {
+                        teams.Add(new Team
+                        {
+                            id = Convert.ToInt32(reader["id"]),
+                            name = reader["name"].ToString(),
+                            city = reader["city"].ToString(),
+                            leagueId = Convert.ToInt32(reader["leagueId"])
+                        });
+                    }
+
+                    reader.Close();
+                    connection.Close();
+
+                    return Task.FromResult<IEnumerable<Team>>(teams);
+                }
+            }
         }
 
         public Task<Team> GetTeamById(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("SELECT * FROM teams WHERE id = @id", connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                using (MySqlDataReader reader = (MySqlDataReader)command.ExecuteReader())
+                {
+                    Team team = null;
+
+                    if (reader.Read())
+                    {
+                        team = new Team
+                        {
+                            id = Convert.ToInt32(reader["id"]),
+                            name = reader["name"].ToString(),
+                            city = reader["city"].ToString(),
+                            leagueId = Convert.ToInt32(reader["leagueId"])
+                        };
+                    }
+                    reader.Close();
+                    connection.Close();
+
+                    return Task.FromResult<Team>(team);
+                }
+            }
         }
 
-        public Task<IEnumerable<Team>> GetTeamsByLeagueId(int id)
+        public Task<IEnumerable<Team>> GetTeamsByLeagueId(int leagueId)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("SELECT * FROM teams WHERE leagueId = @leagueId", connection);
+                command.Parameters.AddWithValue("@leagueId", leagueId);
+
+                using (MySqlDataReader reader = (MySqlDataReader)command.ExecuteReader())
+                {
+                    List<Team> teams = new List<Team>();
+
+                    while (reader.Read())
+                    {
+                        teams.Add(new Team
+                        {
+                            id = Convert.ToInt32(reader["id"]),
+                            name = reader["name"].ToString(),
+                            city = reader["city"].ToString(),
+                            leagueId = Convert.ToInt32(reader["leagueId"])
+                        });
+                    }
+
+                    reader.Close();
+                    connection.Close();
+
+                    return Task.FromResult<IEnumerable<Team>>(teams);
+                }
+            }
         }
 
         public Task<Team> UpdateTeam(Team team)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("UPDATE teams SET name = @name, city = @city, leagueId = @leagueId WHERE id = @id", connection);
+                command.Parameters.AddWithValue("@id", team.id);
+                command.Parameters.AddWithValue("@name", team.name);
+                command.Parameters.AddWithValue("@country", team.city);
+                command.Parameters.AddWithValue("@leagueId", team.leagueId);
+
+                int affectedRows = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                return Task.FromResult(affectedRows > 0 ? team : null);
+            }
         }
 
         public Task<bool> DeleteTeam(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand("DELETE FROM teams WHERE id = @id", connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                int affectedRows = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                return Task.FromResult(affectedRows > 0);
+            }
         }
     }
 }
