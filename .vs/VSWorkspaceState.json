@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FootballFinalProject",
+    "\\FootballFinalProject\\BackFinalProject",
+    "\\FootballFinalProject\\BackFinalProject\\Controllers"
   ],
-  "SelectedNode": "\\FootballFinalProject.sln",
+  "SelectedNode": "\\FootballFinalProject\\BackFinalProject\\Controllers\\LeaguesController.cs",
   "PreviewInSolutionExplorer": false
 }
