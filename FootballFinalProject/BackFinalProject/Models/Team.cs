@@ -11,5 +11,7 @@ namespace BackFinalProject.Models
         public string name { get; set; }
         public string city { get; set; }
         public int leagueId { get; set; }
+        public byte[] image { get; set; }
+
     }
 }
