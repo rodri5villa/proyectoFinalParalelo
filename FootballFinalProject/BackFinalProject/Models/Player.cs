@@ -14,5 +14,7 @@ namespace BackFinalProject.Models
         public int defense { get; set; }
         public int pass { get; set; }
         public int teamId { get; set; }
+        public byte[] image { get; set; }
+
     }
 }

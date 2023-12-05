@@ -22,17 +22,16 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
             {
                 await connection.OpenAsync();
 
-                MySqlCommand command = new MySqlCommand("INSERT INTO leagues (name, country) VALUES (@name, @country); SELECT LAST_INSERT_ID();", connection);
+                MySqlCommand command = new MySqlCommand("INSERT INTO leagues (name, country, image) VALUES (@name, @country, @image); SELECT LAST_INSERT_ID();", connection);
                 command.Parameters.AddWithValue("@name", league.name);
                 command.Parameters.AddWithValue("@country", league.country);
+                command.Parameters.AddWithValue("@image", league.image);
 
-                // Ejecutar la inserción y obtener el ID insertado
                 object result = await command.ExecuteScalarAsync();
                 long insertedId = (result != null && result != DBNull.Value) ? Convert.ToInt64(result) : -1;
 
                 if (insertedId != -1)
                 {
-                    // Realizar una consulta para obtener la liga recién creada
                     command = new MySqlCommand("SELECT * FROM leagues WHERE id = @id", connection);
                     command.Parameters.AddWithValue("@id", insertedId);
 
@@ -44,7 +43,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                             {
                                 id = Convert.ToInt32(reader["id"]),
                                 name = reader["name"].ToString(),
-                                country = reader["country"].ToString()
+                                country = reader["country"].ToString(),
+                                image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                             };
                         }
                         reader.Close();
@@ -91,7 +91,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                         {
                             id = Convert.ToInt32(reader["id"]),
                             name = reader["name"].ToString(),
-                            country = reader["country"].ToString()
+                            country = reader["country"].ToString(),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                         });
                     }
 
@@ -122,7 +123,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                         {
                             id = Convert.ToInt32(reader["id"]),
                             name = reader["name"].ToString(),
-                            country = reader["country"].ToString()
+                            country = reader["country"].ToString(),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                         };
                     }
                     reader.Close();
@@ -139,16 +141,36 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
             {
                 connection.Open();
 
-                MySqlCommand command = new MySqlCommand("UPDATE leagues SET name = @name, country = @country WHERE id = @id", connection);
+                MySqlCommand command = new MySqlCommand("UPDATE leagues SET name = @name, country = @country, image=@image WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@id", league.id);
                 command.Parameters.AddWithValue("@name", league.name);
                 command.Parameters.AddWithValue("@country", league.country);
+                command.Parameters.AddWithValue("@image", league.image);
 
-                int affectedRows = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
-                connection.Close();
+                command = new MySqlCommand("SELECT * FROM leagues WHERE id = @id", connection);
+                command.Parameters.AddWithValue("@id", league.id);
 
-                return Task.FromResult(affectedRows > 0 ? league : null);
+                using (MySqlDataReader reader = (MySqlDataReader)command.ExecuteReader())
+                {
+                    League updatedLeague = null;
+
+                    if (reader.Read())
+                    {
+                        updatedLeague = new League
+                        {
+                            id = Convert.ToInt32(reader["id"]),
+                            name = reader["name"].ToString(),
+                            country = reader["country"].ToString(),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
+                        };
+                    }
+                    reader.Close();
+                    connection.Close();
+
+                    return Task.FromResult<League>(updatedLeague);
+                }
             }
         }
     }

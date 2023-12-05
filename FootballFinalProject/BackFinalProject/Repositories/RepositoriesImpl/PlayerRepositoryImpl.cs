@@ -23,13 +23,14 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
             {
                 connection.OpenAsync();
 
-                MySqlCommand command = new MySqlCommand("INSERT INTO players (name, lastName, attack, defense, pass, teamId) VALUES (@name, @lastName, @attack, @defense, @pass, @teamId); SELECT LAST_INSERT_ID();", connection);
+                MySqlCommand command = new MySqlCommand("INSERT INTO players (name, lastName, attack, defense, pass, teamId, image) VALUES (@name, @lastName, @attack, @defense, @pass, @teamId, @image); SELECT LAST_INSERT_ID();", connection);
                 command.Parameters.AddWithValue("@name", player.name);
                 command.Parameters.AddWithValue("@lastName", player.lastName);
                 command.Parameters.AddWithValue("@attack", player.attack);
                 command.Parameters.AddWithValue("@defense", player.defense);
                 command.Parameters.AddWithValue("@pass", player.pass);
                 command.Parameters.AddWithValue("@teamId", player.teamId);
+                command.Parameters.AddWithValue("@image", player.image);
 
                 object result = await command.ExecuteScalarAsync();
                 long insertedId = (result != null && result != DBNull.Value) ? Convert.ToInt64(result) : -1;
@@ -51,7 +52,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                                 attack = Convert.ToInt32(reader["attack"]),
                                 defense = Convert.ToInt32(reader["defense"]),
                                 pass = Convert.ToInt32(reader["pass"]),
-                                teamId = Convert.ToInt32(reader["teamId"])
+                                teamId = Convert.ToInt32(reader["teamId"]),
+                                image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                             };
                         }
                         reader.Close();
@@ -103,7 +105,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                             attack = Convert.ToInt32(reader["attack"]),
                             defense = Convert.ToInt32(reader["defense"]),
                             pass = Convert.ToInt32(reader["pass"]),
-                            teamId = Convert.ToInt32(reader["teamId"])
+                            teamId = Convert.ToInt32(reader["teamId"]),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                         });
                     }
                     reader.Close();
@@ -136,7 +139,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                             attack = Convert.ToInt32(reader["attack"]),
                             defense = Convert.ToInt32(reader["defense"]),
                             pass = Convert.ToInt32(reader["pass"]),
-                            teamId = Convert.ToInt32(reader["teamId"])
+                            teamId = Convert.ToInt32(reader["teamId"]),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                         };
                     }
                     reader.Close();
@@ -169,7 +173,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                             attack = Convert.ToInt32(reader["attack"]),
                             defense = Convert.ToInt32(reader["defense"]),
                             pass = Convert.ToInt32(reader["pass"]),
-                            teamId = Convert.ToInt32(reader["teamId"])
+                            teamId = Convert.ToInt32(reader["teamId"]),
+                            image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                         });
                     }
                     reader.Close();
@@ -187,7 +192,7 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
             {
                 connection.Open();
 
-                MySqlCommand command = new MySqlCommand("UPDATE players SET name = @name, lastName = @lastName, attack = @attack, defense = @defense, pass = @pass, teamId = @teamId WHERE id = @id", connection);
+                MySqlCommand command = new MySqlCommand("UPDATE players SET name = @name, lastName = @lastName, attack = @attack, defense = @defense, pass = @pass, teamId = @teamId, image = @image WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@name", player.name);
                 command.Parameters.AddWithValue("@lastName", player.lastName);
                 command.Parameters.AddWithValue("@attack", player.attack);
@@ -195,6 +200,7 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                 command.Parameters.AddWithValue("@pass", player.pass);
                 command.Parameters.AddWithValue("@teamId", player.teamId);
                 command.Parameters.AddWithValue("@id", player.id);
+                command.Parameters.AddWithValue("@image", player.image);
 
                 int affectedRows = command.ExecuteNonQuery();
 
@@ -215,7 +221,8 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                                 attack = Convert.ToInt32(reader["attack"]),
                                 defense = Convert.ToInt32(reader["defense"]),
                                 pass = Convert.ToInt32(reader["pass"]),
-                                teamId = Convert.ToInt32(reader["teamId"])
+                                teamId = Convert.ToInt32(reader["teamId"]),
+                                image = reader["image"] != DBNull.Value ? (byte[])reader["image"] : null
                             };
                         }
                         reader.Close();

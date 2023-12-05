@@ -10,5 +10,6 @@ namespace BackFinalProject.Models
         public long id { get; set; }
         public string name { get; set; }
         public string country { get; set; }
+        public byte[] image { get; set; }
     }
 }
