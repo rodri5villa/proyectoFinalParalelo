@@ -1,39 +1,120 @@
-﻿using System;
+﻿using BackFinalProject.Models;
+using BackFinalProject.Repositories.IRepositories;
+using BackFinalProject.Repositories.RepositoriesImpl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace BackFinalProject.Controllers
 {
     public class TeamsController : ApiController
     {
-        // GET: api/Teams
-        public IEnumerable<string> Get()
+        private readonly ITeamRepository teamRepository;
+
+        public TeamsController()
         {
-            return new string[] { "value1", "value2" };
+            teamRepository = new TeamRepositoryImpl();
+        }
+
+        // GET: api/Teams
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllTeams()
+        {
+            IEnumerable<Team> teams = await teamRepository.GetAllTeams();
+            return Ok(teams);
         }
 
         // GET: api/Teams/5
-        public string Get(int id)
+        [HttpGet]
+        public async Task<IHttpActionResult> GetTeamById(int id)
         {
-            return "value";
+            Team team = await teamRepository.GetTeamById(id);
+
+            if (team == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(team);
+        }
+
+        [HttpGet]
+        [Route("api/Teams/League/{id}")]
+        public async Task<IHttpActionResult> GetTeamsByLeagueId(int id)
+        {
+            IEnumerable<Team> teams = await teamRepository.GetTeamsByLeagueId(id);
+
+            if (teams == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(teams);
         }
 
         // POST: api/Teams
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public async Task<IHttpActionResult> AddTeam([FromBody] Team team)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Team insertedTeam = await teamRepository.AddTeam(team);
+
+            if (insertedTeam == null)
+            {
+                return BadRequest("Error inserting player");
+            }
+            return Ok(insertedTeam);
         }
 
         // PUT: api/Teams/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public async Task<IHttpActionResult> UpdateTeam(int id, [FromBody] Team team)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (team == null)
+            {
+                return BadRequest("Team is null");
+            }
+
+            if (id != team.id)
+            {
+                return BadRequest();
+            }
+
+            Team updatedTeam = await teamRepository.UpdateTeam(team);
+
+            if (updatedTeam == null)
+            {
+                return BadRequest("Error updating team");
+            }
+
+            return Ok(updatedTeam);
         }
 
         // DELETE: api/Teams/5
-        public void Delete(int id)
+        [HttpDelete]
+        public async Task<IHttpActionResult> DeleteTeam(int id)
         {
+            bool result = await teamRepository.DeleteTeam(id);
+
+            if (!result)
+            {
+                return BadRequest("Error deleting team");
+            }
+
+            return Ok();
         }
     }
 }
