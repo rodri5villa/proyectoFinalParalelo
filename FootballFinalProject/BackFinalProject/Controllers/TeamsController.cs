@@ -69,7 +69,7 @@ namespace BackFinalProject.Controllers
 
             if (insertedTeam == null)
             {
-                return BadRequest("Error inserting player");
+                return BadRequest("Error inserting team");
             }
             return Ok(insertedTeam);
         }
