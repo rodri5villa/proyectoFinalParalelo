@@ -25,12 +25,15 @@ body{
         "header"
         "main"
         "footer";
-    grid-template-rows: auto 80% auto;
+    grid-template-rows: auto 80% 7%;
     grid-template-columns: 1fr;
 }
 
 .header {
     grid-area: header;
+    background: linear-gradient(to bottom, black 50%, blue);
+    padding: 10px;
+    padding-left: 40px;
 }
 
 .footer {

@@ -1,0 +1,29 @@
+
+.carousel-wrapper {
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.arrow{
+    font-size: 5rem;
+    color: yellow;
+}
+.arrow:hover{
+    cursor: pointer;
+    font-size: 6rem;
+}
