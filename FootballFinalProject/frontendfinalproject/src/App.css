@@ -1,7 +1,91 @@
 #root {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    height: 100vh;
+    background-image: url("./backgroundImage/Rain-33.3s-1536px.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+body{
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 80% auto;
+    grid-template-columns: 1fr;
+}
+
+.header {
+    grid-area: header;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: #ffffff;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+    grid-area: left;
+    padding: 10%;
+}
+
+.right {
+    grid-area: right;
+    padding: 10%;
+}
+
+.leagues-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+.teams-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
