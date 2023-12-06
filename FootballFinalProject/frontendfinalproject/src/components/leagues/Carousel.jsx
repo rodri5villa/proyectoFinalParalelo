@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import LoadingSpinner from "../tools/LoadingSpinner";
 import useFetch from "../tools/useFetch";
-import "./Leagues.css";
-import { leagueApi } from "../api/Api";
+import "./Carousel.css";
 
-function Leagues() {
+export default function Carousel({ api }) {
     const { data, loading, error, fetchData } = useFetch();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slideStyle, setSlideStyle] = useState({});
 
     useEffect(() => {
-        fetchData(leagueApi.get());
+        fetchData(api.get());
     }, []);
 
     useEffect(() => {
@@ -35,16 +34,16 @@ function Leagues() {
             {loading ? (
                 <LoadingSpinner />
             ) : error ? (
-                <div>Error al cargar las ligas</div>
+                <div>Error al cargar los datos</div>
             ) : data.length > 0 ? (
                 <>
-                    <div className="leagues-header">{data[currentIndex].name}</div>
+                    <div className="carousel-header">{data[currentIndex].name}</div>
                     <div className="carousel-wrapper">
                         <div className="arrow" onClick={() => handleSlide('prev')}>&#10092;</div>
                         <div className="carousel" style={slideStyle}>
-                            {data.map((league, index) => (
+                            {data.map((item, index) => (
                                 <div key={index} className="slide">
-                                    {league.id === data[currentIndex].id ? league.name : null }
+                                    {item.id === data[currentIndex].id ? item.name : null }
                                 </div>
                             ))}
                         </div>
@@ -52,10 +51,9 @@ function Leagues() {
                     </div>
                 </>
             ) : (
-                <div>No hay datos de ligas disponibles</div>
+                <div>No hay datos de elementos disponibles</div>
             )}
         </>
     );
 }
 
-export default Leagues;

@@ -1,7 +1,8 @@
-import './App.css'
-import Header from './components/tools/Header'
-import Leagues from './components/Leagues/Leagues'
-import Teams from './components/Teams/Teams'
+import './App.css';
+import Header from './components/tools/Header';
+import Carousel from './components/leagues/Carousel';
+import Teams from './components/Teams/Teams';
+import { leagueApi } from './components/api/Api.jsx';
 
 function App() {
   
@@ -15,7 +16,7 @@ function App() {
               <div className="main">
                   <div className="left">
                       <div className="leagues-container">
-                          <Leagues/>
+                          <Carousel api={leagueApi}/>
                       </div>
                   </div>
                   <div className="right">
