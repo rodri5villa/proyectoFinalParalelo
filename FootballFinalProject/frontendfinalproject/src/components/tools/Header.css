@@ -15,4 +15,5 @@
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 0 10px 5px white;
         font-size: 6em;
         background-color: black;
+        cursor: pointer;
     }

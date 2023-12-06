@@ -1,10 +1,13 @@
 import './App.css';
 import Header from './components/tools/Header';
 import Carousel from './components/leagues/Carousel';
-import Teams from './components/Teams/Teams';
-import { leagueApi } from './components/api/Api.jsx';
+import { leagueApi, teamApi } from './components/api/Api.jsx';
+import { useState } from 'react';
+import LoadingSpinner from './components/tools/LoadingSpinner';
 
 function App() {
+
+    const [id, setId] = useState(null);
   
 
   return (
@@ -16,12 +19,16 @@ function App() {
               <div className="main">
                   <div className="left">
                       <div className="leagues-container">
-                          <Carousel api={leagueApi}/>
+                          <Carousel api={leagueApi.get()} id={null} setId={setId} isLeague={false}/>
                       </div>
                   </div>
                   <div className="right">
                       <div className="teams-container">
-                          <Teams/>
+                          {id === null ?
+                              <LoadingSpinner /> : 
+                              <Carousel api={teamApi.getByTeamId(id)} id={id} isLeague={true} />
+
+                          }
                       </div>
                   </div>
               </div>

@@ -29,3 +29,39 @@ export const leagueApi = {
         body: null
     })
 }
+
+export const teamApi = {
+    get: () => ({
+        url: `https://localhost:44396/api/Teams`,
+        method: "GET",
+    }),
+    getById: (id) => ({
+        url: `https://localhost:44396/api/Teams/${id}`,
+        method: "GET",
+    }),
+    getByTeamId: (id) => ({
+        url: `https://localhost:44396/api/Teams/League/${id}`,
+        method: "GET",
+    }),
+    create: (teamData) => ({
+        url: `https://localhost:44396/api/Teams`,
+        method: "POST",
+        body: teamData,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }),
+    update: (id, teamData) => ({
+        url: `https://localhost:44396/api/Teams/${id}`,
+        method: "PUT",
+        body: teamData,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }),
+    delete: (id) => ({
+        url: `https://localhost:44396/api/Teams/${id}`,
+        method: "DELETE",
+        body: null
+    })
+}
