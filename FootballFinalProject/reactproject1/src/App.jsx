@@ -2,13 +2,9 @@ import './App.css';
 import Header from './components/tools/Header';
 import Carousel from './components/leagues/Carousel';
 import { leagueApi, teamsApi } from './components/api/Api.jsx';
-import { useState } from 'react';
 
-function App() {
 
-    const [id, setId] = useState(0);
-    const [teamId, setTeamId] = useState(0);
-  
+function App() {  
 
   return (
       <>
@@ -19,12 +15,12 @@ function App() {
               <div className="main">
                   <div className="left">
                       <div className="leagues-container">
-                          <Carousel api={leagueApi.get()} setId={setTeamId()} id={id} />
+                          {/*<Carousel api={leagueApi.get()} />*/}
                       </div>
                   </div>
                   <div className="right">
                       <div className="teams-container">
-                          <Carousel api={teamsApi.getByLeagueId(teamId)} />
+                          {/*<Carousel api={teamsApi.get()} />*/}
                       </div>
                   </div>
               </div>

@@ -3,14 +3,14 @@ import LoadingSpinner from "../tools/LoadingSpinner";
 import useFetch from "../tools/useFetch";
 import "./Carousel.css";
 
-export default function Carousel({ api, setId, id }) {
+export default function Carousel({ api }) {
     const { data, loading, error, fetchData } = useFetch();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [slideStyle, setSlideStyle] = useState({});
 
     useEffect(() => {
         fetchData(api);
-    }, [id]);
+    }, []);
 
     useEffect(() => {
         const width = document.querySelector('.carousel')?.offsetWidth;
@@ -22,14 +22,8 @@ export default function Carousel({ api, setId, id }) {
             setCurrentIndex((prevIndex) =>
                 prevIndex === data.length - 1 ? 0 : prevIndex + 1
             );
-            setId((prevIndex) =>
-                prevIndex === data.length - 1 ? 0 : prevIndex + 1
-            );
         } else {
             setCurrentIndex((prevIndex) =>
-                prevIndex === 0 ? data.length - 1 : prevIndex - 1
-            );
-            setId((prevIndex) =>
                 prevIndex === 0 ? data.length - 1 : prevIndex - 1
             );
         }
