@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import UpdateTeam from './components/teams/UpdateTeam.jsx';
+import UpdateLeague from './components/leagues/UpdateLeague.jsx';
+import UpdatePlayer from './components/players/UpdatePlayer.jsx';
 
 const BrowserRouter = createBrowserRouter([
     {
@@ -12,6 +14,14 @@ const BrowserRouter = createBrowserRouter([
     {
         path: "/Team/:id",
         element: <UpdateTeam />
+    },
+    {
+        path: "/League/:id",
+        element: <UpdateLeague />
+    },
+    {
+        path: "/Player/:id",
+        element: <UpdatePlayer />
     }
 ]);
 

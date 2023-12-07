@@ -162,7 +162,7 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
                 MySqlCommand command = new MySqlCommand("UPDATE teams SET name = @name, city = @city, leagueId = @leagueId, image = @image WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@id", team.id);
                 command.Parameters.AddWithValue("@name", team.name);
-                command.Parameters.AddWithValue("@country", team.city);
+                command.Parameters.AddWithValue("@city", team.city);
                 command.Parameters.AddWithValue("@leagueId", team.leagueId);
                 command.Parameters.AddWithValue("@image", team.image);
 

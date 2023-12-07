@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/tools/Header';
 import Carousel from './components/leagues/Carousel';
-import { leagueApi, teamsApi } from './components/api/Api.jsx';
+import { leagueApi, teamApi } from './components/api/Api.jsx';
 
 
 function App() {  
