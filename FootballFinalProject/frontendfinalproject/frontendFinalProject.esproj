@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\components\api\" />
+    <Folder Include="src\components\leagues\" />
     <Folder Include="src\components\teams\" />
   </ItemGroup>
 </Project>

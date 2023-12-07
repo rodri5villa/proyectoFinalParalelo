@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/tools/Header';
-import Carousel from './components/leagues/Carousel';
+import Carousel from './components/tools/Carousel';
 import { leagueApi, teamApi } from './components/api/Api.jsx';
 import { useState } from 'react';
 import LoadingSpinner from './components/tools/LoadingSpinner';
