@@ -30,7 +30,7 @@ export const leagueApi = {
     })
 }
 
-export const teamsApi = {
+export const teamApi = {
     get: () => ({
         url: `https://localhost:44396/api/Teams`,
         method: "GET",
@@ -40,7 +40,7 @@ export const teamsApi = {
         method: "GET",
     }),
     getByLeagueId: (id) => ({
-        url: `https://localhost:44396/api/Teams/Leauge/${id}`,
+        url: `https://localhost:44396/api/Teams/League/${id}`,
         method: "GET",
     }),
     create: (teamData) => ({

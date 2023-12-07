@@ -51,15 +51,15 @@ input {
     align-items: center;
 }
 
-.left {
-    width: 50%;
+.left-team {
+    width: 45%;
     height: 95%;
     background-color: #ffffff;
     padding: 50px;
 }
 
-.rigth {
-    width: 60%;
+.rigth-team {
+    width: 50%;
     height: 95%;
     background-color: #ffffff;
     padding: 50px;

@@ -3,7 +3,7 @@ import Header from '../tools/Header.jsx';
 import './UpdateTeam.css';
 import useFetch from '../tools/useFetch.jsx';
 import { useEffect } from 'react';
-import { teamsApi } from '../api/Api.jsx';
+import { teamApi } from '../api/Api.jsx';
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../tools/LoadingSpinner.jsx';
 
@@ -12,7 +12,7 @@ function UpdateTeam() {
     const { id } = useParams();
 
     useEffect(() => {
-        fetchData(teamsApi.getById(id));
+        fetchData(teamApi.getById(id));
     }, []);
 
     console.log(data);
@@ -30,7 +30,7 @@ function UpdateTeam() {
                     <div>Error al cargar los datos</div>
                 ) : data ? (
                     <div className="top">
-                        <div className="left">
+                        <div className="left-team">
                             <label htmlFor="equipo"><b>Equipo</b></label>
                             <br></br><br></br>
                             <input type="text" id="equipo" name="equipo" value={data.name} readOnly />
@@ -43,7 +43,7 @@ function UpdateTeam() {
                             <br></br><br></br>
                             <input type="text" id="IdLeague" name="IdLeague" value={data.leagueId} readOnly />
                         </div>
-                        <div className="rigth">
+                        <div className="rigth-team">
                                         <img href="" width="" alt="imagenEquipo"></img>
                              <div className="process">
                                 <button >Restaurar</button>
