@@ -1,2 +1,0 @@
-C:\Users\xborj\source\repos\proyectoFinalParalelo\FootballFinalProject\FrontendFinalProject\obj\Debug\frontendfinalproject.esproj.CoreCompileInputs.cache
-C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\FrontendFinalProject\obj\Debug\frontendFinalProject.esproj.CoreCompileInputs.cache
