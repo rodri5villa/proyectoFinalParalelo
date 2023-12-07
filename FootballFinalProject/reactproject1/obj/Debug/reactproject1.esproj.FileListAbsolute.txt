@@ -1,2 +1,1 @@
 C:\Users\rodri\source\repos\PF\proyectoFinalParalelo\FootballFinalProject\reactproject1\obj\Debug\reactproject1.esproj.CoreCompileInputs.cache
-C:\Users\xborj\source\repos\proyectoFinalParalelo\FootballFinalProject\reactproject1\obj\Debug\reactproject1.esproj.CoreCompileInputs.cache

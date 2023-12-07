@@ -18,11 +18,7 @@ function UpdateTeam() {
 
     useEffect(() => {
         fetchData(teamApi.getById(id));
-<<<<<<< HEAD
     }, [update]);
-=======
-    }, []);
->>>>>>> 76756339483930fa68e24c62d15ac2900d8f0e05
 
     useEffect(() => {
         if (data) {
@@ -60,7 +56,6 @@ function UpdateTeam() {
                 <div className="header">
                     <Header />
                 </div>
-<<<<<<< HEAD
                 <div className="main2">
                     {loading ? (
                         <LoadingSpinner />
@@ -94,36 +89,6 @@ function UpdateTeam() {
                     )}
                     <div className="bottom">
                         <button >Ver once inicial</button>
-=======
-            <div className="main2">
-                {loading ? (
-                    <LoadingSpinner /> // Asegúrate de que 'LoadingSpinner' esté definido o importado correctamente
-                ) : error ? (
-                    <div>Error al cargar los datos</div>
-                ) : data ? (
-                    <div className="top">
-                        <div className="left-team">
-                            <label htmlFor="equipo"><b>Equipo</b></label>
-                            <br></br><br></br>
-                            <input type="text" id="equipo" name="equipo" value={data.name} readOnly />
-                            <br></br><br></br><br></br>
-                            <label htmlFor="ciudad"><b>Ciudad</b></label>
-                            <br></br><br></br>
-                            <input type="text" id="ciudad" name="ciudad" value={data.city} readOnly />
-                            <br></br><br></br><br></br>
-                            <label htmlFor="IdLeague"><b>IdLeague</b></label>
-                            <br></br><br></br>
-                            <input type="text" id="IdLeague" name="IdLeague" value={data.leagueId} readOnly />
-                        </div>
-                        <div className="rigth-team">
-                                        <img href="" width="" alt="imagenEquipo"></img>
-                             <div className="process">
-                                <button >Restaurar</button>
-                                <button >Actualizar</button>
-                             </div>
-                        </div>
-
->>>>>>> 76756339483930fa68e24c62d15ac2900d8f0e05
                     </div>
                 </div>
                 <div className="footer">
