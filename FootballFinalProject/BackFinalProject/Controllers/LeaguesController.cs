@@ -1,6 +1,7 @@
 ﻿using BackFinalProject.Models;
 using BackFinalProject.Repositories.IRepositories;
 using BackFinalProject.Repositories.RepositoriesImpl;
+using Microsoft.AspNetCore.Cors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Web.Http;
 
 namespace BackFinalProject.Controllers
 {
+
     public class LeaguesController : ApiController
     {
         private readonly ILeagueRepository leagueRepository;

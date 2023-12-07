@@ -88,11 +88,14 @@ namespace BackFinalProject.Controllers
                 return BadRequest("Team is null");
             }
 
+<<<<<<< HEAD
             //if (id != team.id)
             //{
             //    return BadRequest();
             //}
 
+=======
+>>>>>>> 76756339483930fa68e24c62d15ac2900d8f0e05
             Team updatedTeam = await teamRepository.UpdateTeam(team);
 
             if (updatedTeam == null)
