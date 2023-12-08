@@ -83,3 +83,11 @@ input {
     justify-content: center;
     align-items: center;
 }
+
+.update-button{
+    background-color: cornflowerblue;
+}
+
+.delete-button{
+    background-color: red;
+}

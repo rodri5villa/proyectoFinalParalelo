@@ -108,7 +108,7 @@ export default function Carousel({ api, id, setId, isLeague }) {
                                             }}
                                             onClick={() => {
                                                 if (isLeague) {
-                                                    navigate(`/Teams/${item.id}`);
+                                                    navigate(`/Team/${item.id}`);
                                                 } else {
                                                     navigate(`/League/${item.id}`);
                                                 }

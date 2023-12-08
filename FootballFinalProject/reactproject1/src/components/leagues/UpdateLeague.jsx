@@ -51,10 +51,15 @@ function UpdateLeague() {
         setUpdate(!update);
     };
 
+    const handleDelete = () => {
+        fetchData(leagueApi.delete(id));
+        window.location.href = '/';
+    };
+
     const handleRestore = () => {
         setName(data.name || '');
         setCountry(data.country || '');
-        setImage('');
+        setImage(data.image);
         setTempImage(null);
     };
 
@@ -85,7 +90,7 @@ function UpdateLeague() {
                     ) : error ? (
                         <div>Error al cargar los datos</div>
                     ) : data ? (
-                        <div className="top">
+                        <div className="top">  
                             <div className="left-league">
                                 <label htmlFor="liga"><b>Liga</b></label>
                                 <br /><br />
@@ -120,7 +125,8 @@ function UpdateLeague() {
                                 />
                                 <div className="process">
                                     <button onClick={handleRestore}>Restaurar</button>
-                                    <button onClick={handleUpdate}>Actualizar</button>
+                                    <button className={"update-button"} onClick={handleUpdate}>Actualizar</button>
+                                    <button className={"delete-button"} onClick={handleDelete}>Eliminar</button>
                                 </div>
                             </div>
                         </div>
