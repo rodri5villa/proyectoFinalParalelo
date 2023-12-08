@@ -14,6 +14,8 @@
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    border-radius: 10px;
+box-shadow: 0 0 10px 0 rgb(210, 210, 210);
 }
 
 .slide {
@@ -34,10 +36,31 @@
 
 .carousel ul {
     height: 100%;
+    list-style: none;
+    transition: 0.3s;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel li {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel li:hover{
+    cursor: pointer;
+}
+
+.carousel img {
+    height: 100%;
+    object-fit: cover;
 }
 
 .carousel-header {
@@ -47,7 +70,6 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    s
 }
 
     .carousel-header input {
