@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { teamApi } from '../api/Api.jsx';
 import { useParams } from 'react-router-dom';
 import LoadingSpinner from '../tools/LoadingSpinner.jsx';
+import { useNavigate } from "react-router-dom";
 
 function UpdateTeam() {
     const { data, loading, error, fetchData } = useFetch();
@@ -15,6 +16,8 @@ function UpdateTeam() {
     const [leagueId, setLeagueId] = useState("");
     const [image, setImage] = useState(null);
     const [update, setUpdate] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData(teamApi.getById(id));
@@ -48,6 +51,10 @@ function UpdateTeam() {
         setCity(data.city || "");
         setLeagueId(data.leagueId || "");
         setImage("");
+    }
+
+    const handleNavigationPlayers = () => {
+        navigate(`/Players/${id}`);
     }
 
     return (
@@ -88,7 +95,7 @@ function UpdateTeam() {
                         <div>No hay datos de elementos disponibles</div>
                     )}
                     <div className="bottom">
-                        <button >Ver once inicial</button>
+                        <button onClick={handleNavigationPlayers}>Ver once inicial</button>
                     </div>
                 </div>
                 <div className="footer">
