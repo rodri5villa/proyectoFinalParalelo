@@ -78,6 +78,7 @@ function UpdatePlayer() {
                         <div className="top">
                             <div className="left-player">
                                 <label htmlFor="player"><b>Jugador</b></label>
+<<<<<<< HEAD
                                         <br /><br />
                                 <input type="text" id="player" name="player" value={name} onChange={(e) => setName(e.target.value)} />
                                 <br /><br />
@@ -99,6 +100,29 @@ function UpdatePlayer() {
                                 <br /><br />
                                 <label htmlFor="teamId"><b>teamId</b></label>
                                         <br /><br />
+=======
+                                <br /><br />
+                                <input type="text" id="player" name="player" value={name} onChange={(e) => setName(e.target.value)} />
+                                <br /><br />
+                                <label htmlFor="lastName"><b>Apellido</b></label>
+                                <br /><br />
+                                <input type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                <br /><br />
+                                <label htmlFor="ataque"><b>Ataque</b></label>
+                                <br /><br />
+                                <input type="text" id="ataque" name="ataque" value={attack} onChange={(e) => setAttack(e.target.value)} />
+                                <br /><br />
+                                <label htmlFor="defensa"><b>Defensa</b></label>
+                                <br /><br />
+                                <input type="text" id="defensa" name="defensa" value={defense} onChange={(e) => setDefense(e.target.value)} />
+                                <br /><br />
+                                <label htmlFor="pase"><b>Pase</b></label>
+                                <br /><br />
+                                <input type="text" id="pase" name="pase" value={pass} onChange={(e) => setPass(e.target.value)} />
+                                <br /><br />
+                                <label htmlFor="teamId"><b>teamId</b></label>
+                                <br /><br />
+>>>>>>> develop
                                 <input type="text" id="teamId" name="teamId" value={teamId} onChange={(e) => setTeamId(e.target.value)} />
                             </div>
                             <div className="rigth-player">

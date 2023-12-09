@@ -40,11 +40,19 @@ function UpdateTeam() {
         console.log("updatedTeam", updatedTeam);
         console.log("data", data);
         fetchData(teamApi.update(id, updatedTeam));
+<<<<<<< HEAD
         setUpdate(!update) 
     }
 
     const handleRestore = () => {
         setName(data.name || ""); 
+=======
+        setUpdate(!update)
+    }
+
+    const handleRestore = () => {
+        setName(data.name || "");
+>>>>>>> develop
         setCity(data.city || "");
         setLeagueId(data.leagueId || "");
         setImage("");

@@ -5,6 +5,12 @@ import App from './App';
 import UpdateTeam from './components/teams/UpdateTeam.jsx';
 import UpdateLeague from './components/leagues/UpdateLeague.jsx';
 import UpdatePlayer from './components/players/UpdatePlayer.jsx';
+<<<<<<< HEAD
+=======
+import AddTeam from './components/teams/AddTeam.jsx';
+import AddLeague from './components/leagues/AddLeague.jsx';
+import AddPlayer from './components/players/AddPlayer.jsx'; 
+>>>>>>> develop
 
 const BrowserRouter = createBrowserRouter([
     {
@@ -18,6 +24,17 @@ const BrowserRouter = createBrowserRouter([
     {
         path: "/League/:id",
         element: <UpdateLeague />
+<<<<<<< HEAD
+=======
+    },
+    {
+        path: "/Player/:id",
+        element: <UpdatePlayer />
+    },
+    {
+        path: "/add-league",
+        element: <AddLeague />,
+>>>>>>> develop
     },
     {
         path: "/Player/:id",

@@ -14,7 +14,11 @@ body{
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+<<<<<<< HEAD
 
+=======
+    overflow: hidden;
+>>>>>>> develop
 }
 
 .layout {
@@ -25,7 +29,7 @@ body{
         "header"
         "main"
         "footer";
-    grid-template-rows: auto 80% 7%;
+    grid-template-rows: auto 80% auto;
     grid-template-columns: 1fr;
 }
 
@@ -40,7 +44,7 @@ body{
     grid-area: footer;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     color: #ffffff;
     font-size: 1em;
     font-family: 'Roboto', sans-serif;

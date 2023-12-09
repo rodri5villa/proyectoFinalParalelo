@@ -57,6 +57,12 @@ input {
     align-items: center;
     gap: 82px;
 }
+<<<<<<< HEAD
+=======
+.rigth-league img:hover{
+    cursor: pointer;
+}
+>>>>>>> develop
 
 .process {
     display: flex;
@@ -66,12 +72,21 @@ input {
     gap: 12px;
 }
 
+<<<<<<< HEAD
 .process button {
      font-size: 2em;
      cursor: pointer;
      border-radius: 10px;
      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
+=======
+    .process button {
+        font-size: 2em;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+>>>>>>> develop
 
 .bottom {
     width: 100%;
@@ -80,3 +95,14 @@ input {
     justify-content: center;
     align-items: center;
 }
+<<<<<<< HEAD
+=======
+
+.update-button{
+    background-color: cornflowerblue;
+}
+
+.delete-button{
+    background-color: red;
+}
+>>>>>>> develop
