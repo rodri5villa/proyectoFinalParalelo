@@ -99,8 +99,29 @@ export default function Carousel({ api, id, setId, isLeague }) {
                             <ul ref={listRef}>
                                 {data.map((item) => {
                                     return (
-                                        <li key={item.id} style={{ height: "100%" }}>
-                                            <img src={item.image} alt={item.name} />
+                                        <li
+                                            key={item.id}
+                                            style={{
+                                                height: item.id === data[currentIndex].id ? "100%" : "0",
+                                                overflow: "hidden",
+                                                transition: "height 0.5s ease",
+                                            }}
+                                            onClick={() => {
+                                                if (isLeague) {
+                                                    navigate(`/Team/${item.id}`);
+                                                } else {
+                                                    navigate(`/League/${item.id}`);
+                                                }
+                                            }}
+                                        >
+                                            <img
+                                                src={item.image ? `data:image/png;base64,${item.image}` : null}
+                                                alt={item.name}
+                                                style={{
+                                                    display: item.id === data[currentIndex].id ? "initial" : "none",
+                                                    transition: "display 0s ease 0.5s",
+                                                }}
+                                            />
                                         </li>
                                     )
                                 })}
@@ -117,4 +138,3 @@ export default function Carousel({ api, id, setId, isLeague }) {
         </>
     );
 }
-

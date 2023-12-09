@@ -65,3 +65,39 @@ export const teamApi = {
         body: null
     })
 }
+
+export const playerApi = {
+    get: () => ({
+        url: `https://localhost:44396/api/Players`,
+        method: "GET",
+    }),
+    getById: (id) => ({
+        url: `https://localhost:44396/api/Players/${id}`,
+        method: "GET",
+    }),
+    getByTeamId: (id) => ({
+        url: `https://localhost:44396/api/Players/Team/${id}`,
+        method: "GET",
+    }),
+    create: (teamData) => ({
+        url: `https://localhost:44396/api/Players`,
+        method: "POST",
+        body: teamData,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }),
+    update: (id, teamData) => ({
+        url: `https://localhost:44396/api/Players/${id}`,
+        method: "PUT",
+        body: teamData,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }),
+    delete: (id) => ({
+        url: `https://localhost:44396/api/Players/${id}`,
+        method: "DELETE",
+        body: null
+    })
+}
