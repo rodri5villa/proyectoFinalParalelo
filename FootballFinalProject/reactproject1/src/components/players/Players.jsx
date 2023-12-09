@@ -18,7 +18,11 @@ function Players() {
 
     const handleNavigateToPlayer = (id) => {
         navigate(`/Player/${id}`);
-        };
+    };
+
+    const handleNavigationAdd = () => {
+        navigate(`/add-player`);
+    };
 
     return (
         <>
@@ -33,6 +37,9 @@ function Players() {
                         <div>Error al cargar los datos</div>
                     ) : data ? (
                         <div className="top">
+                            <div className="colocation-add-player">
+                                <div className="add-button" onClick={handleNavigationAdd}>+</div>
+                            </div>
                             <table className="table">
                                 <thead>
                                     <tr>
