@@ -92,3 +92,15 @@ input {
     justify-content: center;
     align-items: center;
 }
+
+.rigth-team img:hover {
+    cursor: pointer;
+}
+
+.update-button {
+    background-color: cornflowerblue;
+}
+
+.delete-button {
+    background-color: red;
+}
