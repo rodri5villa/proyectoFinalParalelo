@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../tools/Header.jsx';
 import './UpdateTeam.css';
 import useFetch from '../tools/useFetch.jsx';
@@ -85,7 +85,7 @@ function UpdateTeam() {
     };
 
     const handleNavigationPlayers = () => {
-        navigate(`/Players/${ id }`);
+        navigate(`/Players/${id}`);
     }
 
     return (
@@ -115,28 +115,28 @@ function UpdateTeam() {
                                 <input type="text" id="IdLeague" name="IdLeague" value={leagueId} onChange={(e) => setLeagueId(e.target.value)} />
                             </div>
                             <div className="rigth-team">
-                                        <img
-                                            src={tempImage ? URL.createObjectURL(tempImage) : (image ? `data:image/png;base64,${image}` : null)}
-                                            width="200"
-                                            alt="imagenEquipo"
-                                            onClick={() => document.getElementById('fileInput').click()}
-                                        />
-                                        <input
-                                            type="file"
-                                            id="fileInput"
-                                            style={{ display: 'none' }}
-                                            onChange={(e) => {
-                                                const file = e.target.files[0];
-                                                setTempImage(file);
-                                                const reader = new FileReader();
-                                                reader.onloadend = () => {
-                                                    setImage(reader.result);
-                                                };
-                                                if (file) {
-                                                    reader.readAsDataURL(file);
-                                                }
-                                            }}
-                                        />  
+                                <img
+                                    src={tempImage ? URL.createObjectURL(tempImage) : (image ? `data:image/png;base64,${image}` : null)}
+                                    width="200"
+                                    alt="imagenEquipo"
+                                    onClick={() => document.getElementById('fileInput').click()}
+                                />
+                                <input
+                                    type="file"
+                                    id="fileInput"
+                                    style={{ display: 'none' }}
+                                    onChange={(e) => {
+                                        const file = e.target.files[0];
+                                        setTempImage(file);
+                                        const reader = new FileReader();
+                                        reader.onloadend = () => {
+                                            setImage(reader.result);
+                                        };
+                                        if (file) {
+                                            reader.readAsDataURL(file);
+                                        }
+                                    }}
+                                />
                                 <div className="process">
                                     <button onClick={handleRestore}>Restaurar</button>
                                     <button className={"update-button"} onClick={handleUpdate}>Actualizar</button>

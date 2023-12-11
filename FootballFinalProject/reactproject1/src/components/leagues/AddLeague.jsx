@@ -4,7 +4,7 @@ import useFetch from '../tools/useFetch';
 import { leagueApi } from '../api/Api';
 
 function AddLeague() {
-    const { data, loading, error, fetchData } = useFetch();
+    const { data, loading, error, fetchData } = useFetch(); 
     const [name, setName] = useState('');
     const [country, setCountry] = useState('');
     const [image, setImage] = useState(null);
@@ -50,7 +50,7 @@ function AddLeague() {
             };
         });
     };
-
+    
     return (
         <>
             <section className="layout">
@@ -103,7 +103,7 @@ function AddLeague() {
                 </div>
             </section>
         </>
-    );
+  );
 }
 
 export default AddLeague;
