@@ -69,6 +69,13 @@ input {
     align-items: center;
     gap: 82px;
 }
+.rigth-team img{
+    border-block-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 10px;
+}
 
 .process {
     display: flex;

@@ -21,7 +21,7 @@ function Players() {
     };
 
     const handleNavigationAdd = () => {
-        navigate(`/add-player`);
+        navigate(`/add-player/League/${id}`);
     };
 
     return (

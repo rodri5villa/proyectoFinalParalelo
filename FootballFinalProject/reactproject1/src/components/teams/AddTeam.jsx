@@ -38,7 +38,7 @@ function AddTeam() {
             };
         }
         fetchData(teamApi.create(newLeague));
-        //window.location.href = '/';
+        window.location.href = '/';
     };
 
     const convertBlobToBase64 = (blob) => {
@@ -71,7 +71,7 @@ function AddTeam() {
                             <input type="text" id="ciudad" name="Ciudad" value={city} onChange={(e) => setCity(e.target.value)} />
                             <br></br>
                             <label htmlFor="IdLeague"><b>Liga</b></label>
-                            <Select className="select" api={leagueApi.get()} setId={setLeagueId} />
+                            <Select api={leagueApi.get()} setId={setLeagueId} />
                         </div>
                         <div className="rigth-team">
                             <img

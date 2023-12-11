@@ -47,8 +47,6 @@ function UpdatePlayer() {
             image: image,
         };
 
-        console.log("updatedPlayer", updatedPlayer);
-        console.log("data", data);
         fetchData(playerApi.update(id, updatedPlayer));
         setUpdate(!update)
     }
@@ -95,8 +93,8 @@ function UpdatePlayer() {
                                 <img width="" alt="imagenJugador" />
                                 <div className="processPlayer">
                                     <button onClick={handleRestore}>Restaurar</button>
-                                            <button className={"update-button"} onClick={handleUpdate}>Actualizar</button>
-                                            <button className={"delete-button"} onClick={handleDelete}>Eliminar</button>
+                                    <button className={"update-button"} onClick={handleUpdate}>Actualizar</button>
+                                    <button className={"delete-button"} onClick={handleDelete}>Eliminar</button>
                                 </div>
                             </div>
                             <div className="right-player">
