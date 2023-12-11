@@ -36,7 +36,7 @@ const BrowserRouter = createBrowserRouter([
         element: <AddTeam />,
     },
     {
-        path: "/add-player",
+        path: "/add-player/League/:id",
         element: <AddPlayer />,
     },
     {

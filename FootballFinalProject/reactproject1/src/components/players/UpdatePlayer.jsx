@@ -47,11 +47,14 @@ function UpdatePlayer() {
             image: image,
         };
 
-        console.log("updatedPlayer", updatedPlayer);
-        console.log("data", data);
         fetchData(playerApi.update(id, updatedPlayer));
         setUpdate(!update)
     }
+
+    const handleDelete = () => {
+        fetchData(playerApi.delete(id));
+        window.location.href = '/';
+    };
 
     const handleRestore = () => {
         setName(data.name || "");
@@ -87,10 +90,11 @@ function UpdatePlayer() {
                                 <input type="text" id="teamId" name="teamId" value={teamId} onChange={(e) => setTeamId(e.target.value)} />
                             </div>
                             <div className="mid-player">
-                                <img width="" alt="imagenEquipo" />
-                                <div className="process">
+                                <img width="" alt="imagenJugador" />
+                                <div className="processPlayer">
                                     <button onClick={handleRestore}>Restaurar</button>
-                                    <button onClick={handleUpdate}>Actualizar</button>
+                                    <button className={"update-button"} onClick={handleUpdate}>Actualizar</button>
+                                    <button className={"delete-button"} onClick={handleDelete}>Eliminar</button>
                                 </div>
                             </div>
                             <div className="right-player">
