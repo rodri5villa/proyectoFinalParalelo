@@ -8,6 +8,7 @@ import UpdatePlayer from './components/players/UpdatePlayer.jsx';
 import AddTeam from './components/teams/AddTeam.jsx';
 import AddLeague from './components/leagues/AddLeague.jsx';
 import AddPlayer from './components/players/AddPlayer.jsx'; 
+import Players from './components/players/Players.jsx';
 
 const BrowserRouter = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const BrowserRouter = createBrowserRouter([
     {
         path: "/add-player",
         element: <AddPlayer />,
+    },
+    {
+        path: "/Players/:id",
+        element: <Players />,
     }
 ]);
 
