@@ -77,7 +77,6 @@ function UpdateLeague() {
         });
     };
 
-
     return (
         <>
             <section className="layout">
