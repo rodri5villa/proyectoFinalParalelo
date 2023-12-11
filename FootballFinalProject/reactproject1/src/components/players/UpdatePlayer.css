@@ -5,7 +5,7 @@
 
 input {
     border-radius: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -37,27 +37,55 @@ input {
     justify-content: center;
     align-items: center;
     gap: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
 }
 
 .left-player {
-    width: 45%;
     height: 100%;
-    background-color: #ffffff;
-    padding: 35px;
-    margin-top: -30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.rigth-player {
-    width: 50%;
-    height: 95%;
-    background-color: #ffffff;
-    padding: 50px;
+    .left-player input {
+        width: 100%;
+    }
+
+.mid-player {
+    height: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 82px;
+    gap: 24px;
+    padding: 24px;
 }
+
+    .mid-player button {
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 2em;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+
+.right-player {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+    .right-player input {
+        width: 100%;
+    }
 
 .process {
     display: flex;
