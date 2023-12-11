@@ -21,7 +21,7 @@ namespace BackFinalProject.Repositories.RepositoriesImpl
 
             using(MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.OpenAsync();
+                await connection.OpenAsync();
 
                 MySqlCommand command = new MySqlCommand("INSERT INTO players (name, lastName, attack, defense, pass, teamId, image) VALUES (@name, @lastName, @attack, @defense, @pass, @teamId, @image); SELECT LAST_INSERT_ID();", connection);
                 command.Parameters.AddWithValue("@name", player.name);
