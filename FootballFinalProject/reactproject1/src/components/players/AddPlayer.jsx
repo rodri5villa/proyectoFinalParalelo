@@ -52,7 +52,7 @@ function AddPlayer() {
             };
         }
         await fetchData(playerApi.create(newPlayer));
-        window.location.href = '/';
+        //window.location.href = '/';
     };
 
     const convertBlobToBase64 = (blob) => {

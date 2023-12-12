@@ -79,7 +79,7 @@ function UpdatePlayer() {
 
     const handleDelete = () => {
         fetchData(playerApi.delete(id));
-        window.location.href = '/';
+        //window.location.href = '/';
     };
 
     const handleRestore = () => {
