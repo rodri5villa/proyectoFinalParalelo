@@ -52,7 +52,11 @@ function AddPlayer() {
             };
         }
         await fetchData(playerApi.create(newPlayer));
+<<<<<<< HEAD
         window.location.href = '/';
+=======
+        //window.location.href = '/';
+>>>>>>> borja
     };
 
     const convertBlobToBase64 = (blob) => {
